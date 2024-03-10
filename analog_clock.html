@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analog Clock</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: powderblue; /* Background color set to powder blue */
+  }
+
+  h1 {
+    text-align: left;
+    color: #333;
+  }
+
+  .clock {
+    position: relative;
+    width: 300px; /* Enlarged clock circle */
+    height: 300px; /* Enlarged clock circle */
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #333;
+  }
+
+  .hand {
+    position: absolute;
+    background: #000;
+    transform-origin: center bottom;
+  }
+
+  .hour {
+    width: 6px; /* Width of the hour hand */
+    height: 80px; /* Length of the hour hand */
+    top: calc(50% - 80px); /* Positioning the hour hand in the center vertically */
+    left: calc(50% - 3px); /* Positioning the hour hand in the center horizontally */
+  }
+
+  .minute {
+    width: 4px; /* Width of the minute hand */
+    height: 120px; /* Length of the minute hand */
+    top: calc(50% - 120px); /* Positioning the minute hand in the center vertically */
+    left: calc(50% - 2px); /* Positioning the minute hand in the center horizontally */
+  }
+
+  .second {
+    width: 2px; /* Width of the second hand */
+    height: 140px; /* Length of the second hand */
+    top: calc(50% - 140px); /* Positioning the second hand in the center vertically */
+    left: calc(50% - 1px); /* Positioning the second hand in the center horizontally */
+    background: #f00;
+  }
+
+  .number {
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .number.top {
+    top: 5px;
+    left: calc(50% - 8px); /* Positioning the number '12' in the center horizontally */
+  }
+
+  .number.right {
+    top: calc(50% - 8px); /* Positioning the number '3' in the center vertically */
+    left: calc(100% - 15px);
+  }
+
+  .number.bottom {
+    bottom: 5px;
+    left: calc(50% - 8px); /* Positioning the number '6' in the center horizontally */
+  }
+
+  .number.left {
+    top: calc(50% - 8px); /* Positioning the number '9' in the center vertically */
+    left: 5px;
+  }
+</style>
+</head>
+<body>
+<h1>Analog Clock -----------   </h1>
+<div class="clock">
+  <div class="number top">12</div>
+  <div class="number right">3</div>
+  <div class="number bottom">6</div>
+  <div class="number left">9</div>
+
+  <div class="hand hour" id="hour"></div>
+  <div class="hand minute" id="minute"></div>
+  <div class="hand second" id="second"></div>
+</div>
+
+<script>
+  const hourHand = document.getElementById('hour');
+  const minuteHand = document.getElementById('minute');
+  const secondHand = document.getElementById('second');
+
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours() % 12;
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const hourDegrees = (hours * 30) + (0.5 * minutes);
+    const minuteDegrees = (minutes * 6) + (0.1 * seconds);
+    const secondDegrees = seconds * 6;
+
+    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+    minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
+    secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+</body>
+</html>
