@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Humanity - A Beacon of Compassion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: violet; /* Updated background color */
+        }
+
+        /* Styling article tag component */
+        article {
+            position: relative;
+            margin-left: 10px;
+            padding-top: 80px; /* Increased padding for better spacing */
+            text-align: center; /* Center-align content */
+        }
+
+        /* Styling navlist */
+        #navlist {
+            background-color: #003366; /* Updated navigation bar background color */
+            position: fixed;
+            left: 0;
+            top: -80px; /* Adjusted top position */
+            width: 100%;
+            display: block;
+            transition: top 0.3s;
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling navlist anchor element */
+        #navlist a {
+            display: inline-block;
+            color: #fff; /* Changed text color to white */
+            text-align: center;
+            padding: 15px 20px 10px 40px; /* Increased padding for better touch experience */
+            text-decoration: none;
+            font-size: 18px; /* Increased font size */
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effect of navlist anchor element */
+        #navlist a:hover {
+            background-color: #0055a4; /* Darker shade on hover */
+        }
+
+        /* Styling the paragraph */
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 30px auto;
+            max-width: 800px;
+            color: #333;
+            padding: 0 20px;
+        }
+
+        /* Added style for the container to center the content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar items -->
+    <div id="navlist">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Our Products</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact Us</a>
+    </div>
+
+    <!-- Logo with tag -->
+    <article>
+        <div class="container">
+            <h1 style="color:#003366;">HUMANITY</h1> <!-- Updated text color -->
+            <b style="color:#003366;">A Beacon of Compassion</b> <!-- Updated text color -->
+
+            <!-- Updated paragraph about humanity -->
+            <p>
+                Humanity, the essence of compassion and empathy, binds us together on the journey of life. It is the guiding light that illuminates the darkest corners of despair and ignites hope in the hearts of the downtrodden. In a world often plagued by strife and discord, acts of kindness and understanding serve as beacons of hope, reminding us of our shared humanity. Whether it's extending a helping hand to those in need, lending a listening ear to the voiceless, or simply offering a warm smile to brighten someone's day, each act of kindness has the power to ripple through society, spreading waves of positivity and goodwill. Let us embrace the beauty of humanity and strive to create a world where compassion reigns supreme, transcending boundaries and uniting us all in the spirit of love and harmony.
+            </p>
+        </div>
+    </article>
+
+    <script>
+        // Function to toggle navigation bar visibility
+        function toggleNavbar() {
+            var navBar = document.getElementById("navlist");
+            if (navBar.style.top === "0px") {
+                navBar.style.top = "-80px";
+            } else {
+                navBar.style.top = "0";
+            }
+        }
+
+        // Event listener to show/hide navigation bar when clicked anywhere
+        document.addEventListener("click", function (event) {
+            var navBar = document.getElementById("navlist");
+            if (!navBar.contains(event.target)) {
+                toggleNavbar();
+            }
+        });
+
+        // Function to prevent navigation bar from hiding when clicked on navigation links
+        document.getElementById("navlist").addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+	
+	// When the user scrolls down then
+	// slide down the navbar
+	window.onscroll = function() {
+		scroll()
+	};
+
+	function scroll() {
+		if (document.body.scrollTop > 20 ||
+				document.documentElement.scrollTop > 20) {
+			document.getElementById("navlist").style.top = "0";
+		}
+		else {
+			document.getElementById("navlist").style.top
+					= "-60px";
+		}
+	}
+
+    </script>
+</body>
+
+</html>
