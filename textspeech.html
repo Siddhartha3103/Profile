@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            background-image: linear-gradient(-90deg, powderblue,violet );
+            color: purple;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-container {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .headings-container {
+            margin-bottom: 2rem;
+        }
+
+        .interaction-container {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .text-control {
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            background-color: #3f464a52;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            resize: vertical;
+        }
+
+        .text-control:focus-visible {
+            outline: none;
+        }
+
+        .error-para {
+            color: red;
+        }
+
+        .btn {
+            padding: 0.8rem;
+            background-image: linear-gradient(90deg, #F4244C, #F57D4E);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .btn:hover {
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="app-container">
+            <div class="headings-container">
+                <h1>Text to Speech Converter </h1>
+                <h3>Enter any text of your choice and click the button to convert it to speech</h3>
+            </div>
+
+            <div class="interaction-container">
+                <textarea id="textToConvert" placeholder="Enter text to convert into speech..." cols="35" rows="10" class="text-control"></textarea>
+                <p class="error-para"></p>
+                <button class="btn" id="convertBtn">Play Converted Sound</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const text = document.getElementById("textToConvert");
+        const convertBtn = document.getElementById("convertBtn");
+
+        convertBtn.addEventListener('click', function () {
+            const speechSynth = window.speechSynthesis;
+            const enteredText = text.value;
+            const error = document.querySelector('.error-para');
+            if (!speechSynth.speaking && !enteredText.trim().length) {
+                error.textContent = `Nothing to Convert! Enter text in the text area.`
+            }
+            if (!speechSynth.speaking && enteredText.trim().length) {
+                error.textContent = "";
+                const newUtter = new SpeechSynthesisUtterance(enteredText);
+                speechSynth.speak(newUtter);
+                convertBtn.textContent = "Sound is Playing..."
+            }
+            setTimeout(() => {
+                convertBtn.textContent = "Play Converted Sound"
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
