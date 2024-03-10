@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Network Speed Detection</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: powderblue;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head> 
+<body> 
+    <div class="container">
+        <h1>Network Speed Detection</h1>
+        <script type="text/javascript"> 
+            var userImageLink = "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200714180638/CIP_Launch-banner.png";
+            var downloadSize = 5616998; 
+            var downloadImgSrc = new Image(); 
+            downloadImgSrc.onload = function () { 
+                var endTime = new Date().getTime(); 
+                displaySpeed(time_start, endTime); 
+            }; 
+            var time_start = new Date().getTime(); 
+            downloadImgSrc.src = userImageLink; 
+
+            function displaySpeed(startTime, endTime) { 
+                var timeDuration = (endTime - startTime) / 1000; 
+                var loadedBits = downloadSize * 8; 
+                var bps = (loadedBits / timeDuration).toFixed(2); 
+                var speedInKbps = (bps / 1024).toFixed(2); 
+                var speedInMbps = (speedInKbps / 1024).toFixed(2); 
+                alert("Your internet connection speed is: \n" 
+                    + bps + " bps\n" + speedInKbps  
+                    + " kbps\n" + speedInMbps + " Mbps\n"); 
+            } 
+        </script>
+        <button id="btn">Refresh Page</button>
+    </div>
+</body> 
+</html>
