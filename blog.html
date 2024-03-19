@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,16 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: powderblue;
+            background-color: rgb(27, 114, 129);
         }
 
         .container {
             width: 80%;
+            height: auto;
             margin: 20px auto;
             padding: 20px;
-            background-color: #d0ff78;
-            border-radius: 8px;
+            background-color: #c9dda5;
+            border-radius: 18px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -41,16 +43,16 @@
         input[type="text"],
         textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #f5a9a9;
+            padding: 10px 10px 10px 0px;
+            margin-bottom: 50px;
+            border: 1px solid #740303;
             border-radius: 5px;
             font-size: 16px;
         }
 
         button {
-            background-color: #216b33;
-            color: #fff;
+            background-color: #85c4ee;
+            color: #1a0909;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
@@ -63,7 +65,7 @@
         }
 
         .blog-post {
-            background-color: #f9f9f9;
+            background-color: #d36b6b;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 5px;
@@ -76,24 +78,24 @@
         }
 
         .blog-post p {
-            color: #db5353;
+            color: #140e0e;
             margin-bottom: 10px;
         }
 
         .blog-post .author {
             font-style: italic;
-            color: #888;
+            color: #111010;
             margin-bottom: 5px;
         }
 
         .blog-post .timestamp {
             font-size: 12px;
-            color: #888;
+            color: #473f3f;
         }
 
         .edit-btn {
-            background-color: #7496df;
-            color: #d19595;
+            background-color: #85a5e9;
+            color: #0c070e;
             border: none;
             padding: 5px 10px;
             font-size: 14px;
@@ -129,14 +131,14 @@
 
         /* Colorful styles */
         .container {
-            background-color: #f7f7f7;
+            background-color: #22cdda;
             color: #333;
         }
 
         button,
         input[type="text"],
         textarea {
-            background-color: #60d1e6;
+            background-color: #91d3df;
             border: 1px solid #ccc;
         }
 
@@ -145,23 +147,24 @@
         }
 
         .blog-post {
-            background-color: #e6e6e6;
+            margin-top: 40px;
+            background-color: #fd86d0;
             border: 1px solid #ccc;
         }
 
         .edit-btn {
-            background-color: #5cb85c;
+            background-color: #69bad3;
         }
 
         .edit-btn:hover {
-            background-color: #4cae4c;
+            background-color: #3d81da;
         }
-
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Simple Blog</h1>
+        <h1>Blogging Beacon<br><br></h1>
         <form id="blog-form">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
@@ -204,7 +207,7 @@
             editButton.classList.add('edit-btn');
 
             // Event listener for edit button
-            editButton.addEventListener('click', function() {
+            editButton.addEventListener('click', function () {
                 // Show the edit form
                 editForm.classList.add('show');
 
@@ -214,7 +217,7 @@
                 authorInput.value = author;
 
                 // Add event listener to edit form submission
-                editForm.addEventListener('submit', function(event) {
+                editForm.addEventListener('submit', function (event) {
                     event.preventDefault();
 
                     // Update blog post content with form inputs
@@ -276,4 +279,5 @@
         document.body.appendChild(editForm);
     </script>
 </body>
+
 </html>
